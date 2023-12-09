@@ -1,0 +1,33 @@
+{
+    "name": "email-sender",
+    "version": "1.0.0",
+    "description": "email sender Node.js",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon server.js",
+        "start": "node server.js",
+        "f:check": "prettier --check .",
+        "f:write": "prettier --write .",
+        "l:check": "eslint .",
+        "l:fix": "eslint --fix ."
+    },
+    "author": "Poltoratskiy Serhiy",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.1.1",
+        "body-parser": "^1.20.2",
+        "dotenv": "^16.3.1",
+        "eslint-prettier": "^0.0.0-empty",
+        "express": "^4.18.2",
+        "mongoose": "^8.0.3",
+        "nodemailer": "^6.9.7"
+    },
+    "devDependencies": {
+        "eslint": "^8.55.0",
+        "eslint-config-prettier": "^9.1.0",
+        "nodemon": "^3.0.2",
+        "prettier": "^3.1.0"
+    }
+}
