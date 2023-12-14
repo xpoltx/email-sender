@@ -38,18 +38,20 @@ export const login = (req, res) => {
         .then((user) => {
             bcrypt
                 .compare(req.body.password, user.password)
-                .then(() => {
-                    console.log('Login succeed');
-                })
+                .then((passwordMatch) => {
+                    
+                    if(!passwordMatch){
+                        return res.status(401).json({message: 'Incorrect password'});
+                    }
+                res.status(200).json({
+                    username: user.username,
+                    email: user.email,
+                    role: user.role,
+                });
+            })
                 .catch((err) => {
                     return res.status(500).json(err);
                 });
-
-            res.status(201).json({
-                username: user.username,
-                email: user.email,
-                role: user.role,
-            });
         })
         .catch((err) => {
             return res.status(500).json(err);
