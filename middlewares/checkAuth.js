@@ -23,15 +23,18 @@ export default (req, res, next) => {
         .then((user) => {
             bcrypt
                 .compare(password, user.password)
-                .then(() => {
+                .then((passwordMatch) => {  
+                    if(!passwordMatch){
+                        return res.status(401).json({ message: 'Incorrect password' });
+                    }
                     req.user = user._doc;
                     next();
                 })
                 .catch((err) => {
-                    res.status(500).json(err);
+                    return res.status(500).json(err);
                 });
         })
         .catch((err) => {
-            res.status(500).json(err);
+            return res.status(500).json(err);
         });
 };

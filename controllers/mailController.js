@@ -15,16 +15,10 @@ export const sendMail = (req, res) => {
             date: new Date(),
         })
             .then((mail) => {
-                console.log('Mail was created');
-
                 const transporter = nodemailer.createTransport({
                     host: account.smtp.host,
                     port: account.smtp.port,
                     secure: account.smtp.secure,
-
-                    //test version
-                    //in future replace with new account on some mail system
-                    // account user created and saved to db password also
                     auth: {
                         user: account.user,
                         pass: account.pass,
@@ -41,6 +35,7 @@ export const sendMail = (req, res) => {
                     if (err) {
                         return res.status(500).json(err);
                     } else {
+                        console.log(info);
                         return res
                             .status(200)
                             .json({

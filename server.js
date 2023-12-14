@@ -8,8 +8,10 @@ import './config/db.js';
 import authRouter from './routes/authRoutes.js';
 import mailsendRouter from './routes/mailsendRoutes.js';
 
-//Telegram bot
-import bot from './telegramBot/bot.js';
+//DOCS
+import  swaggerUI  from 'swagger-ui-express';
+import swaggerSpec from './config/swagger.js';
+
 
 dotenv.config();
 
@@ -17,10 +19,14 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.use('/api', authRouter);
 
+app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+
+app.use('/api', authRouter);
 app.use('/api', mailsendRouter);
 
+
+
 app.listen(process.env.PORT, () => {
-    console.log(`http://localhost/${process.env.PORT}`);
+    console.log(`http://localhost:${process.env.PORT}`);
 });

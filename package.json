@@ -5,7 +5,7 @@
     "main": "server.js",
     "type": "module",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "echo \"test in docs\" && exit 1",
         "dev": "nodemon server.js",
         "start": "node server.js",
         "f:check": "prettier --check .",
@@ -19,11 +19,11 @@
         "bcrypt": "^5.1.1",
         "body-parser": "^1.20.2",
         "dotenv": "^16.3.1",
-        "eslint-prettier": "^0.0.0-empty",
         "express": "^4.18.2",
         "mongoose": "^8.0.3",
-        "node-telegram-bot-api": "^0.64.0",
-        "nodemailer": "^6.9.7"
+        "nodemailer": "^6.9.7",
+        "swagger-jsdoc": "^6.2.8",
+        "swagger-ui-express": "^5.0.0"
     },
     "devDependencies": {
         "eslint": "^8.55.0",

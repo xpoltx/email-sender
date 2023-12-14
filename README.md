@@ -17,4 +17,4 @@ Features that will be implicated:
 2. Authorization through Telegram bot
 3. Creating a message via Telegram bot
 4. Sending messages to mail via the Telegram bot
-
+5. Checking status of message(opened or not)
